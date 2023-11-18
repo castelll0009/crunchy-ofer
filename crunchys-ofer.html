@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background: black;
+}
+
+img {
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.background-video {
+  width: 100vw;
+  background: url("https://rheeeuro.github.io/weathering-with-you/assets/main/main.jpg");
+  background-size: cover;
+  position: relative;
+}
+
+.title {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .wrapper {
+    height: 100vh;
+    position: relative;
+  }
+  .background-video {
+    height: 100vh;
+    width: 177.78vh;
+    position: absolute;
+    left: 50%; /* % of surrounding element */
+    top: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+  }
+  .title {
+    width: 70%;
+  }
+}
+
+</style>
+<!-- //button byt -->
+<style>
+    
+.cta-button.animate[data-v-fd045204] {
+    animation: pulsepre-fd045204 1.5s ease-in-out infinite both;
+    -webkit-animation: pulsepre-fd045204 1.5s ease-in-out infinite both;
+}
+.cta-button[data-v-fd045204] {
+    align-items: center;
+    background: url(data:image/png;base64,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) no-repeat;
+    background-size: 100% 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    font-family: us2;
+    font-size: 38px;
+    height: -moz-fit-content;
+    height: fit-content;
+    justify-content: center;
+    max-width: -moz-max-content;
+    max-width: max-content;
+    padding: 10px 15px 20px 10px;
+}
+a {
+    background-color: transparent;
+}
+
+a {
+    color: #fff;
+}
+a:active, a:hover {
+    outline-width: 0;
+    color: orange;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+*, :after, :before {
+    background-repeat: no-repeat;
+    box-sizing: inherit;
+}
+:root {
+    --swiper-navigation-size: 44px;
+}
+:root {
+    --swiper-theme-color: #007aff;
+}
+:root {
+    --v-theme-overlay-multiplier: 1;
+    --v-scrollbar-offset: 0px;
+}
+:root {
+    --swiper-navigation-size: 44px;
+}
+:root {
+    --swiper-theme-color: #007aff;
+}
+:root {
+    --v-theme-background: 255,255,255;
+    --v-theme-background-overlay-multiplier: 1;
+    --v-theme-surface: 255,255,255;
+    --v-theme-surface-overlay-multiplier: 1;
+    --v-theme-surface-variant: 66,66,66;
+    --v-theme-surface-variant-overlay-multiplier: 2;
+    --v-theme-on-surface-variant: 238,238,238;
+    --v-theme-primary: 98,0,238;
+    --v-theme-primary-overlay-multiplier: 2;
+    --v-theme-primary-darken-1: 55,0,179;
+    --v-theme-primary-darken-1-overlay-multiplier: 2;
+    --v-theme-secondary: 3,218,198;
+    --v-theme-secondary-overlay-multiplier: 1;
+    --v-theme-secondary-darken-1: 1,135,134;
+    --v-theme-secondary-darken-1-overlay-multiplier: 1;
+    --v-theme-error: 176,0,32;
+    --v-theme-error-overlay-multiplier: 2;
+    --v-theme-info: 33,150,243;
+    --v-theme-info-overlay-multiplier: 1;
+    --v-theme-success: 76,175,80;
+    --v-theme-success-overlay-multiplier: 1;
+    --v-theme-warning: 251,140,0;
+    --v-theme-warning-overlay-multiplier: 1;
+    --v-theme-on-background: 0,0,0;
+    --v-theme-on-surface: 0,0,0;
+    --v-theme-on-primary: 255,255,255;
+    --v-theme-on-primary-darken-1: 255,255,255;
+    --v-theme-on-secondary: 0,0,0;
+    --v-theme-on-secondary-darken-1: 255,255,255;
+    --v-theme-on-error: 255,255,255;
+    --v-theme-on-info: 255,255,255;
+    --v-theme-on-success: 255,255,255;
+    --v-theme-on-warning: 255,255,255;
+    --v-border-color: 0, 0, 0;
+    --v-border-opacity: 0.12;
+    --v-high-emphasis-opacity: 0.87;
+    --v-medium-emphasis-opacity: 0.6;
+    --v-disabled-opacity: 0.38;
+    --v-idle-opacity: 0.04;
+    --v-hover-opacity: 0.04;
+    --v-focus-opacity: 0.12;
+    --v-selected-opacity: 0.08;
+    --v-activated-opacity: 0.12;
+    --v-pressed-opacity: 0.12;
+    --v-dragged-opacity: 0.08;
+    --v-theme-kbd: 33, 37, 41;
+    --v-theme-on-kbd: 255, 255, 255;
+    --v-theme-code: 245, 245, 245;
+    --v-theme-on-code: 0, 0, 0;
+}
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    font-family: Roboto,sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+}
+html {
+    -webkit-text-size-adjust: 100%;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    word-break: normal;
+}
+</style>
+<body>
+   
+    <div class="wrapper">
+        <a class="cta-button animate title " style="z-index: 100; transform: translate(-49.2036%, -49.8352%);" data-v-bd41b050="" data-v-fd045204=""><span data-v-fd045204=""><!--[-->Buy Crunchys NOW! <!--[--><!----><!----><!--]--><!--]--></span><!----></a>
+  
+        <video class="background-video" playsinline="" autoplay="" muted="" loop="" poster="https://rheeeuro.github.io/weathering-with-you/assets/main/main.jpg">
+          <source src="https://rheeeuro.github.io/weathering-with-you/assets/main/main.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <img class="title" src="https://rheeeuro.github.io/weathering-with-you/assets/main/text.png" style="padding-top: 50vh;">
+      </div>
+     
+
+      <script>
+        const videoContainer = document.querySelector(".wrapper");
+const title = document.querySelector(".title");
+
+const LERP_ALPHA = 0.5;
+
+let titlePos = {
+  x: -50,
+  y: -50
+};
+
+videoContainer.addEventListener("mousemove", (e) => {
+  const x = -50 + ((e.pageX - innerWidth / 2) / (innerWidth / 2)) * 2;
+  const y = -50 + ((e.pageY - innerHeight / 2) / (innerHeight / 2)) * 2;
+
+  titlePos.x = titlePos.x * (1 - LERP_ALPHA) + x * LERP_ALPHA;
+  titlePos.y = titlePos.y * (1 - LERP_ALPHA) + y * LERP_ALPHA;
+});
+
+videoContainer.addEventListener("mouseout", (e) => {
+  titlePos.x = titlePos.x * (1 - LERP_ALPHA) + -50 * LERP_ALPHA;
+  titlePos.y = titlePos.y * (1 - LERP_ALPHA) + -50 * LERP_ALPHA;
+});
+
+setInterval(function () {
+  title.style.transform = `translate(${titlePos.x}%, ${titlePos.y}%)`;
+}, 10);
+
+document.addEventListener("contextmenu", (event) => event.preventDefault());
+
+      </script>
+</body>
+</html>
+
